@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		
+		<title>Features</title>
+		
+		<style>
+			html	{ height: 100% }
+			body	{ height: 100%; margin: 0; padding: 0 }
+		</style>
+		
+		<script>
+			
+			var createObjectURL 
+					= window.URL && window.URL.createObjectURL
+					? function (file) { return window.URL.createObjectURL (file); }
+					: window.webkitURL && window.webkitURL.createObjectURL
+					? function (file) { return window.webkitURL.createObjectURL (file); }
+					: undefined;						
+							
+									
+			function invokeObjectMethod(id,path) {
+			
+				window.location = "webarea://" + id + "/" + path;
+				
+			}
+			
+			function drop_file(id,e) {
+				
+				var files = e.dataTransfer.files;
+				
+				if(typeof window.FileReader !== 'undefined')
+				{
+					
+					var reader = new FileReader();
+					
+					reader.onload = function (e) {
+						window.location = "webarea://" + id + "/ondrop/" + e.target.result;
+					}
+					
+					for (var i = 0; i < files.length; i++) {
+						
+						reader.readAsDataURL(files[i]);
+						
+					}
+					
+				}
+	
+			}
+			
+			function drop_url(id,e) {
+				
+				var files = e.dataTransfer.files;
+																									
+				if(createObjectURL){
+					
+					var canvas = document.createElement('canvas');
+					var context = canvas.getContext('2d');
+						
+					for (var i = 0; i < files.length; i++) {
+					
+						var img = new Image;
+						var url = createObjectURL(files[i]);
+																												
+						img.src = url;	
+						
+						img.onload = function() {
+							context.drawImage(img,0,0,128,128);
+							var data = canvas.toDataURL('image/png');
+							window.location = "webarea://" + id + "/ondrop/" + data;
+						}		
+					
+					}
+	
+				}
+	
+			}
+			
+		</script>
+		
+	</head>
+	
+	<body 
+		onload="invokeObjectMethod('body','onload');"
+		ondragstart="return false;"
+		ondragleave="return false;"
+		ondragover="return false;"
+		ondrop="return false;"> 
+							
+		<div 
+			id="svg1"
+			align="left"
+			ondrop="drop_file('rect1',event);return false;">
+			
+			<svg height="44px">
+				<rect 
+					id="rect1" 
+					
+					onclick="invokeObjectMethod('rect1','onclick')"		
+					onmouseover="invokeObjectMethod('rect1','onmouseover')"					
+					onmouseout="invokeObjectMethod('rect1','onmouseout')"	
+					
+					x="8px" 
+					y="8px" 
+					width="160px" 
+					height="32px" 
+					fill="#FFFF99" 
+					stroke="#999999" 
+					fill-opacity="0.1"
+					stroke-width="5px" />
+					
+					<text 
+						id="text1"
+						
+						onclick="invokeObjectMethod('text1','onclick')"	
+					
+						x="88px" 
+						y="28px" 
+						font-family="'Lucida Grande', 'Segoe UI'"
+						font-size="16px" 
+						text-anchor="middle">Drop to FileReader</text>
+			</svg>
+			
+		</div>	
+		
+		<div 
+			id="svg2"
+			align=" left"
+			ondrop="drop_url('rect2',event);return false;">
+			
+			<svg height="44px">
+				<rect 
+					id="rect2" 
+					
+					onclick="invokeObjectMethod('rect2','onclick')"		
+					onmouseover="invokeObjectMethod('rect2','onmouseover')"					
+					onmouseout="invokeObjectMethod('rect2','onmouseout')"	
+					
+					x="8px" 
+					y="8px" 
+					width="160px" 
+					height="32px" 
+					fill="#99FF99" 
+					stroke="#999999" 
+					fill-opacity="0.1"
+					stroke-width="5px" />
+					
+					<text 
+						id="text2"
+						
+						onclick="invokeObjectMethod('text2','onclick')"	
+						
+						x="88px" 
+						y="28px" 
+						font-family="'Lucida Grande', 'Segoe UI'"
+						font-size="16px" 
+						text-anchor="middle">Drop to URL</text>
+			</svg>
+			
+		</div>			
+	</body>
+	
+</html>

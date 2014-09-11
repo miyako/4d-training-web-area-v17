@@ -1,0 +1,31 @@
+body {
+	font-family: arial, sans-serif;
+	color: #444;
+	font-size: 16px;
+	padding:0px;
+	margin:0px;
+}
+
+p {
+	line-height: 20px;
+}
+
+code {
+	font-weight: bold;
+	color: #f44;;
+}
+
+a {
+	color:#3d8dde;
+}
+
+#wrapper {
+	padding:10px;
+}
+
+ /* CSS for images inside item wrapper */
+.kc-item img {
+	position:absolute;
+	pointer-events: none;   /* Make images non-selectable. */
+	width:100%;             /* Make images expand to wrapper size (used in 2d modes). */
+}
