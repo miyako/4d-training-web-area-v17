@@ -14,7 +14,7 @@ Material from DevCon 2014 (Tokyo and Sydney)
 
 <img width="502" alt="スクリーンショット 2020-04-13 22 31 58" src="https://user-images.githubusercontent.com/1725068/79125440-2a57e500-7dd9-11ea-849e-35d05ca1e83b.png">
 
-<img width="502" alt="スクリーンショット 2020-04-13 22 31 58" src="https://user-images.githubusercontent.com/1725068/79125458-33e14d00-7dd9-11ea-9f1f-475a1ecb5d0a.png">
+<img width="502" alt="スクリーンショット 2020-04-13 22 32 33" src="https://user-images.githubusercontent.com/1725068/79125616-69863600-7dd9-11ea-820f-0bc6dc3791f7.png">
 
 #### Highcharts
 
