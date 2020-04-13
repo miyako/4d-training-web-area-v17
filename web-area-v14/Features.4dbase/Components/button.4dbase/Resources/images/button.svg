@@ -7,107 +7,107 @@
    width="150"
    height="48"
    version="1.0">
-   
+
 	<defs
 		id="defs">
 
-		<linearGradient 
-			id="virtual_light" 
+		<linearGradient
+			id="virtual_light"
 			gradientUnits="objectBoundingBox"
-			x1="0" 
+			x1="0"
 			x2="0"
-			y1="0" 
+			y1="0"
 			y2="1">
 			<stop stop-color="#EEEEEE" offset="0" stop-opacity="0.6" />
 			<stop stop-color="#EEEEEE" offset="0.6" stop-opacity="0" />
 		</linearGradient>
-		
+
 		<filter id="filter" x="0" y="0" width="200%" height="200%">
-			<feColorMatrix 
+			<feColorMatrix
 				in="SourceAlpha"
-				result="matrixOut" 
+				result="matrixOut"
 				type="matrix"
 				values="0 0 0 0 0
-						0 0 0 0 .22 
-						0 0 0 0 .9 
+						0 0 0 0 .22
+						0 0 0 0 .9
 						0 0 0 2.5 0" />
 			<feGaussianBlur  in="matrixOut" result="blurOut" stdDeviation="1" />
 			<feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-		</filter>	
-		
+		</filter>
+
 	</defs>
-		
-	<g 
-		id="borders" 
+
+	<g
+		id="borders"
 		fill-opacity="1"
 		stroke-opacity="1">
 
-		<rect 
+		<rect
 			shape-rendering="geometricPrecision"
 			transform="translate(5,5)"
-			x="0" 
+			x="0"
 			y="0"
 			rx="5"
-			ry="5" 
+			ry="5"
 			width="140"
-			height="38"	
-			filter="none"		
+			height="38"
+			filter="none"
 			fill="#000000"
 			fill-opacity="1"
-			stroke="none" 
-			id="button-background" 
+			stroke="none"
+			id="button-background"
 			/>
-			
-			<!-- fill-opacity on filter fill not supported in 4D -->	
+
+			<!-- fill-opacity on filter fill not supported in 4D -->
 			<!-- alignment-baseline not supported in 4D -->
 			<!-- auto | baseline | before-edge | text-before-edge | middle | central | after-edge | text-after-edge | ideographic | alphabetic | hanging | mathematical -->
-			
-		<!--<text 
+
+		<!--<text
 			transform="translate(75,33)"
-			id="button-title" 
-			text-anchor="middle" 
-			font-size="24" 
-			font-weight="bold" 
-			font-family="Lucida Grande"
-			x="0" 
-			y="0" 
+			id="button-title"
+			text-anchor="middle"
+			font-size="24"
+			font-weight="bold"
+			font-family="Arial"
+			x="0"
+			y="0"
 			fill="#EEEEEE">
 			Click!
 		</text>-->
 
-		<rect 
+		<rect
 			shape-rendering="geometricPrecision"
 			transform="translate(5,5)"
-			x="0" 
+			x="0"
 			y="0"
 			rx="5"
-			ry="5" 
-			width="140" 
+			ry="5"
+			width="140"
 			height="38"
-			fill="url(#virtual_light)" 
-			stroke="#FFFFFF" 
+			fill="url(#virtual_light)"
+			stroke="#FFFFFF"
 			stroke-opacity="0.4"
 			id="button-reflection" />
-			
-		<textArea 
+
+		<textArea
 			id="button-title"
-			transform="translate(5,5)" 
+			transform="translate(5,5)"
 			text-rendering="geometricPrecision"
 			text-align="center"
-			display-align="center"			 
-			font-size="24" 
+			display-align="center"
+			font-size="24"
 			font-style="normal"
-			font-weight="normal" 
+			font-weight="normal"
 			text-decoration="none"
-			font-family="Lucida Grande"
-			x="0" 
+			font-family="Arial"
+			x="0"
 			y="0"
 			width="140"
-			height="38"				
+			height="38"
 			fill="#EEEEEE">
 			Click!
 		</textArea>
-			
+
 	</g>
- 
+
 </svg>
